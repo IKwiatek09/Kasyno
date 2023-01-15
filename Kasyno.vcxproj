@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackJack.cpp" />
+    <ClCompile Include="Games.cpp" />
+    <ClCompile Include="jednorekibandyta.cpp" />
     <ClCompile Include="Kasyno.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ruletka.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlackJack.h" />
+    <ClInclude Include="Games.h" />
+    <ClInclude Include="jednorekibandyta.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="ruletka.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

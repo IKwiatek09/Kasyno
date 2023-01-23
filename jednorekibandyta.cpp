@@ -2,11 +2,13 @@
 #include <time.h>
 #include <stdlib.h>
 #include <iostream>
+
 using namespace std;
 
-jednorekibandyta::jednorekibandyta()
+jednorekibandyta::jednorekibandyta(Player* CurrentPlayer)
 {
 	srand(time(NULL));
+	MyPlayer = CurrentPlayer;
 }
 
 void jednorekibandyta::randomise()
@@ -24,6 +26,7 @@ void jednorekibandyta::randomise()
 	if (result[0] == result[1] && result[1] == result[2])
 	{
 		cout << "Win!" << endl;
+		multiple();
 	}
 	else
 	{
@@ -31,9 +34,17 @@ void jednorekibandyta::randomise()
 	}
 }
 
+void jednorekibandyta::multiple()
+{
+	bet = 2 * bet;
+	std::cout << "Wygra³es " << bet << "z³" << endl;
+	MyPlayer->money = bet + MyPlayer->money;
+}
+
 void jednorekibandyta::StartGame()
 {
 	std::cout << "Podaj wartosc zakladu: ";
 	std::cin >> bet;
+	MyPlayer->money = MyPlayer->money - bet;
 	randomise();
 }

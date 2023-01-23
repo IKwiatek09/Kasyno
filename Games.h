@@ -6,5 +6,7 @@ public:
 
 	virtual void StartGame()=0;
 
+	void on_lose();
+
 };
 

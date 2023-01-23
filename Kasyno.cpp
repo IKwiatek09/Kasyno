@@ -11,30 +11,42 @@ using namespace std;
 
 int main()
 {
-    Player Player1;
-    Player1.RandomizeMoney();
+    string name;
+    cout << "Podaj imie" << endl;
+    cin >> name;
+
+    Player* CurrentPlayer = new Player(name);
+
+    CurrentPlayer->RandomizeMoney();
 
     Games* CurrentGame=nullptr;
 
-    int wybor;
-    cout << "Wybierz gre -> wybierz: 1 - ruletka,2 - BlackJack albo 3 - jednoreki bandyta: ";
-    cin >> wybor;
+    char play_again = 'y';
 
-    if (wybor == 1)
+    while (play_again == 'y' && CurrentPlayer->money>0) 
     {
-        CurrentGame = new Ruletka();
-    }
-    if (wybor == 2)
-    {
-        //CurrentGame = new BlackJack();
-    }
-    if (wybor == 3)
-    {
-       CurrentGame = new jednorekibandyta();
-    }
-    
-    CurrentGame->StartGame();
+        int wybor;
+        cout << "Wybierz gre -> wybierz: 1 - ruletka,2 - BlackJack albo 3 - jednoreki bandyta: ";
+        cin >> wybor;
 
+        if (wybor == 1)
+        {
+            CurrentGame = new Ruletka();
+        }
+        if (wybor == 2)
+        {
+            CurrentGame = new BlackJack();
+        }
+        if (wybor == 3)
+        {
+            CurrentGame = new jednorekibandyta(CurrentPlayer);
+        }
+
+        CurrentGame->StartGame();
+
+        cout << "chcesz grac dalej? y/n" << endl;
+        cin >> play_again;
+    }
 
     return 0;
 

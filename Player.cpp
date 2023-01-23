@@ -9,9 +9,12 @@ void Player::RandomizeMoney()
 	money = random;
 }
 
-Player::Player()
+
+
+Player::Player(std::string PlayerName)
 {
 	srand(time(NULL));
 	RandomizeMoney();
+	name = PlayerName;
 }
 

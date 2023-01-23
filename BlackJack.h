@@ -12,9 +12,11 @@ public:
 
 	void randomise();
 
-	void drawcard();
+	void drawcard(int who);
 
-	//void StartGame();
+	void multiple();
+
+	void StartGame();
 
 };
 

@@ -63,9 +63,10 @@ void BlackJack::randomise()
 		drawcard(dealer_score);
 	}
 
-	if (21 - player_score < 21 - dealer_score)
+	if (abs(21-player_score) < abs(21 - dealer_score)) 
 	{
 		cout << "Win" << endl;
+		multiple();
 	}
 	else if (player_score == dealer_score)
 	{
@@ -86,11 +87,15 @@ void BlackJack::drawcard(int who)
 	liczby.erase(liczby.begin() + random);
 
 }
-	//if (result[0] == result[1] && result[1] == result[2])
-	//{
-		//cout << "Win!" << endl;
-	//}
-	//else
-	//{
-		//cout << "Lost" << endl;
-	//}
+
+void BlackJack::multiple()
+{
+	bet = 2 * bet;
+	std::cout << "Wygra³es " << bet << "z³" << endl;
+}
+	
+void BlackJack::StartGame()
+{
+	std::cout << "Podaj wartosc zakladu: ";
+	std::cin >> bet;
+}
